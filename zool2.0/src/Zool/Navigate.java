@@ -7,32 +7,43 @@ public class Navigate extends Map {
 
 	///////////////// Attributes
 
-	public int react; 
-	
+	public int react;
+
 	public String onTheMove;
-	
+
 	/////////////// Constructors
 	public Navigate() {
-		//react = onTheMove.stream().filter(lon -> lon.intOr ).map();
+		// react = onTheMove.stream().filter(lon -> lon.intOr ).map();
 		onTheMove = gameInput();
-		}
+	}
 
 	////////////// Methods
-	
-	/*public int gameReaction() {
-		if(onTheMove)
-	}*/
+
+	/*
+	 * public int gameReaction() { if(onTheMove) }
+	 */
 
 	private boolean intOrChar(String onTheMove) {
 		String[] converted = onTheMove.split("");
-		for(int i=0 ; i<converted.length;i++) {
-			if(i > 0 && i<10) {
+		for (int i = 0; i < converted.length; i++) {
+			if (i > 0 && i < 10) {
 				return true;
 			}
-		} return false;
-		
+		}
+		return false;
+
 	}
-	
+
+	public boolean getintOrChar(String onTheMove) {
+		return true;
+	}
+
+	public void setintOrChar(String onTheMove) {
+
+		this.intOrChar(onTheMove);
+
+	}
+
 	private String gameInput() {
 		Scanner userInput = new Scanner(System.in);
 
@@ -51,11 +62,27 @@ public class Navigate extends Map {
 			userInput.close();
 
 			String onTheMove = direction + " past " + (int) numberOfTiles + " boulders";
-			return onTheMove; //this will be used in the above code to create the int of React
+			return onTheMove; // this will be used in the above code to create the int of React
 		} else {
 			userInput.close();
 			return "Error: Please enter a valid number";
 		}
 
+	}
+
+	public int getReact() {
+		return react;
+	}
+
+	public void setReact(int react) {
+		this.react = react;
+	}
+
+	public String getOnTheMove() {
+		return onTheMove;
+	}
+
+	public void setOnTheMove(String onTheMove) {
+		this.onTheMove = onTheMove;
 	}
 }
